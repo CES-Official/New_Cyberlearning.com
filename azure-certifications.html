@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azure Certifications — CyberLearning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── CYBERLEARNING SHARED DESIGN SYSTEM ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:        #1A1A1A;
+  --ink-mid:    #3D3D3D;
+  --ink-soft:   #666666;
+  --rule:       #E0DEDB;
+  --bg:         #FAFAF8;
+  --bg-warm:    #F4F2EE;
+  --bg-dark:    #F0EEE9;
+  --accent:     #1D4E8F;
+  --accent-lt:  #EAF0F9;
+  --accent-mid: #2560AA;
+  --white:      #FFFFFF;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 56px; height: 60px;
+  background: rgba(250,250,248,0.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-logo {
+  font-family: 'Lora', serif;
+  font-size: 16px; font-weight: 600; color: var(--ink);
+  text-decoration: none; letter-spacing: 0.01em;
+}
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+.nav-links a {
+  font-size: 12px; font-weight: 400; color: var(--ink-soft);
+  text-decoration: none; transition: color 0.2s; letter-spacing: 0.01em;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--ink); }
+.nav-links a.active { font-weight: 500; }
+.nav-cta {
+  font-size: 12px; font-weight: 500; color: var(--accent);
+  background: transparent; border: 1px solid var(--accent);
+  padding: 7px 18px; cursor: pointer; border-radius: 2px;
+  text-decoration: none; transition: all 0.2s; display: inline-block;
+}
+.nav-cta:hover { background: var(--accent); color: #fff; }
+
+/* ── PAGE WRAPPER ── */
+.page { padding-top: 60px; }
+
+/* ── TYPOGRAPHY ── */
+.eyebrow {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+  display: block;
+}
+h1.display {
+  font-family: 'Lora', serif;
+  font-size: clamp(30px, 3.8vw, 52px);
+  font-weight: 500; line-height: 1.12;
+  letter-spacing: -0.015em; color: var(--ink);
+}
+h2.heading {
+  font-family: 'Lora', serif;
+  font-size: clamp(22px, 2.4vw, 34px);
+  font-weight: 500; line-height: 1.18;
+  letter-spacing: -0.01em; color: var(--ink);
+}
+h3.subhead {
+  font-family: 'Lora', serif;
+  font-size: clamp(15px, 1.5vw, 18px);
+  font-weight: 500; line-height: 1.3; color: var(--ink);
+}
+em { font-style: italic; }
+.body-text {
+  font-size: 14px; font-weight: 300; line-height: 1.8;
+  color: var(--ink-soft);
+}
+.body-sm {
+  font-size: 13px; font-weight: 300; line-height: 1.75;
+  color: var(--ink-soft);
+}
+.rule-line { width: 32px; height: 1px; background: var(--accent); margin: 20px 0; }
+
+/* ── LAYOUT ── */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 56px; }
+.section { padding: 76px 0; }
+.section-warm { background: var(--bg-warm); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.section-dark { background: var(--bg-dark); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.section-white { background: var(--white); border-top: 1px solid var(--rule); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.two-col-center { align-items: center; }
+.three-col { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.four-col { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+
+/* ── BUTTONS ── */
+.btn-primary {
+  background: var(--accent); color: #fff; font-size: 12px; font-weight: 500;
+  padding: 11px 26px; border: none; cursor: pointer; border-radius: 2px;
+  text-decoration: none; display: inline-block; transition: opacity 0.2s;
+}
+.btn-primary:hover { opacity: 0.87; }
+.btn-outline {
+  background: transparent; color: var(--accent); font-size: 12px; font-weight: 500;
+  padding: 10px 24px; border: 1px solid var(--accent); cursor: pointer; border-radius: 2px;
+  text-decoration: none; display: inline-block; transition: all 0.2s;
+}
+.btn-outline:hover { background: var(--accent); color: #fff; }
+.link-arrow {
+  font-size: 12px; font-weight: 500; color: var(--accent);
+  text-decoration: none; display: inline-flex; align-items: center; gap: 5px;
+  transition: gap 0.2s;
+}
+.link-arrow:hover { gap: 9px; }
+
+/* ── CARDS ── */
+.card {
+  background: var(--white); padding: 28px 26px;
+  border: 1px solid var(--rule); transition: border-color 0.2s;
+}
+.card:hover { border-color: var(--accent); }
+.card-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.card-grid .card { border: none; }
+.card-grid .card:hover { background: var(--accent-lt); }
+
+/* ── STAT CELLS ── */
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.stat-cell { background: var(--white); padding: 28px 26px; }
+.stat-num { font-family: 'Lora', serif; font-size: 19px; font-weight: 500; color: var(--ink); line-height: 1; margin-bottom: 5px; }
+.stat-label { font-size: 11px; color: var(--ink-soft); letter-spacing: 0.02em; }
+
+/* ── TAG ── */
+.tag {
+  display: inline-block; font-size: 10px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); border: 1px solid var(--accent);
+  padding: 4px 9px; border-radius: 2px;
+}
+.tag-soft {
+  display: inline-block; font-size: 10px; font-weight: 400;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--ink-soft); border: 1px solid var(--rule);
+  padding: 4px 9px; border-radius: 2px;
+}
+
+/* ── CRED STRIP ── */
+.cred-strip {
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  padding: 14px 56px; display: flex; gap: 40px; overflow-x: auto; scrollbar-width: none;
+  background: var(--white);
+}
+.cred-strip::-webkit-scrollbar { display: none; }
+.cred-item { display: flex; align-items: center; gap: 8px; white-space: nowrap; flex-shrink: 0; }
+.cred-item span { font-size: 11px; color: var(--ink-soft); font-weight: 400; }
+.cred-dot { width: 3px; height: 3px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+
+/* ── PAGE HERO ── */
+.page-hero { padding: 60px 0 52px; border-bottom: 1px solid var(--rule); }
+.page-hero-sm { padding: 48px 0 40px; border-bottom: 1px solid var(--rule); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--rule); background: var(--white);
+  padding: 26px 56px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-logo { font-family: 'Lora', serif; font-size: 15px; font-weight: 600; color: var(--ink); text-decoration: none; }
+.footer-logo span { color: var(--accent); }
+.footer-links { display: flex; gap: 22px; }
+.footer-links a { font-size: 11px; color: var(--ink-soft); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--ink); }
+.footer-copy { font-size: 11px; color: var(--ink-soft); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .container { padding: 0 20px; }
+  .section { padding: 52px 0; }
+  .two-col, .three-col, .four-col, .stat-grid, .card-grid { grid-template-columns: 1fr; }
+  .four-col, .card-grid { background: transparent; border: none; gap: 10px; }
+  .card-grid .card { border: 1px solid var(--rule); }
+  .cred-strip { padding: 12px 20px; }
+  footer { flex-direction: column; gap: 14px; padding: 24px 20px; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+}
+
+/* ── PAGE-SPECIFIC: AZURE CERTIFICATIONS ── */
+.cert-intro { max-width: 680px; }
+.cert-intro p { margin-top: 16px; }
+
+.quicknav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
+.qn-link {
+  font-size: 12px; font-weight: 500; letter-spacing: .04em;
+  color: var(--ink-mid); text-decoration: none;
+  padding: 6px 14px 6px 12px; border-left: 3px solid var(--accent);
+  background: var(--white); transition: background .2s, color .2s;
+}
+.qn-link:hover { background: var(--accent-lt); color: var(--ink); }
+
+.cert-grid { display: flex; flex-direction: column; gap: 48px; margin-top: 12px; }
+
+.cert-card {
+  border: 1px solid var(--rule); background: var(--white);
+  scroll-margin-top: 80px;
+}
+.cert-header {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 28px;
+  background: var(--cert-color, var(--accent));
+}
+.cert-code {
+  font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600;
+  color: #fff; letter-spacing: .02em;
+}
+.cert-level {
+  font-size: 10px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.4);
+  padding: 3px 10px;
+}
+.cert-title {
+  font-family: 'Lora', serif; font-size: 20px; font-weight: 500;
+  color: var(--ink); padding: 20px 28px 0; line-height: 1.3;
+}
+.cert-tagline {
+  font-size: 13px; color: var(--cert-color, var(--accent)); padding: 8px 28px 0;
+  line-height: 1.5;
+}
+.cert-body { padding: 20px 28px 28px; }
+.cert-overview {
+  font-size: 13px; font-weight: 300; line-height: 1.75; color: var(--ink-soft);
+  margin-bottom: 24px;
+}
+.cert-columns {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+  margin-bottom: 24px;
+}
+.cert-col-head {
+  font-size: 12px; font-weight: 600; color: var(--ink); letter-spacing: .02em;
+  margin-bottom: 8px;
+}
+.cl-list { display: flex; flex-direction: column; gap: 1px; }
+.cl-item {
+  font-size: 12px; font-weight: 300; color: var(--ink-mid); line-height: 1.6;
+  padding: 7px 12px; background: var(--bg); border-left: 2px solid var(--cert-color, var(--accent));
+}
+.cert-depts { margin-bottom: 20px; }
+.dept-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.dept-tag {
+  font-size: 10px; font-weight: 500; letter-spacing: .04em;
+  color: var(--cert-color, var(--accent)); border: 1px solid var(--cert-color, var(--accent));
+  padding: 4px 10px; text-transform: uppercase;
+}
+.cert-footer {
+  font-size: 11px; font-weight: 500; color: #fff; letter-spacing: .02em;
+  background: var(--cert-color, var(--accent)); padding: 10px 16px;
+  line-height: 1.6; text-align: center;
+}
+
+@media (max-width: 900px) {
+  .cert-columns { grid-template-columns: 1fr; }
+  .cert-header { padding: 14px 20px; }
+  .cert-title, .cert-tagline, .cert-body { padding-left: 20px; padding-right: 20px; }
+}
+
+</style>
+</head>
+<body class="page">
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="data:image/png;base64,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" alt="CyberLearning" style="height:28px;width:auto;"></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="azure-certifications.html" class="active">Azure Certifications</a></li>
+    <li><a href="certiport-certifications.html">Certiport Certifications</a></li>
+    <li><a href="https://compudonjunior.com" target="_blank">COMPUDON Junior</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Schedule a Batch</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Azure Certifications</span>
+    <h1 class="display">Associate Level<br><em>Certifications</em></h1>
+    <div class="rule-line"></div>
+    <div class="cert-intro">
+      <p class="body-text">Role-ready credentials for the modern technology workforce. Associate-level certifications represent the transition from foundational knowledge to applied, job-ready expertise — actively sought by employers across cloud, AI, data, networking, and security.</p>
+    </div>
+    <div class="quicknav">
+      <a href="#az104" class="qn-link" style="border-left-color:#1D4E8F">AZ-104</a><a href="#az700" class="qn-link" style="border-left-color:#2E7D32">AZ-700</a><a href="#ai103" class="qn-link" style="border-left-color:#6A1B9A">AI-103</a><a href="#ai300" class="qn-link" style="border-left-color:#6A1B9A">AI-300</a><a href="#pl300" class="qn-link" style="border-left-color:#00695C">PL-300</a><a href="#sc500" class="qn-link" style="border-left-color:#D84315">SC-500</a>
+    </div>
+  </div>
+</div>
+
+<!-- CERTIFICATION CARDS -->
+<div class="section">
+  <div class="container">
+    <div class="cert-grid">
+      
+    <div class="cert-card" id="az104" style="--cert-color: #1D4E8F">
+      <div class="cert-header">
+        <div class="cert-code">AZ-104</div>
+        <span class="cert-level">Associate</span>
+      </div>
+      <h3 class="cert-title">Microsoft Azure Administrator Associate</h3>
+      <p class="cert-tagline"><em>Master cloud infrastructure management — the bedrock of every enterprise Azure deployment.</em></p>
+      <div class="cert-body">
+        <p class="cert-overview">AZ-104 is the premier cloud infrastructure credential, certifying the ability to implement, manage, and monitor an organisation's full Azure environment. From identity and governance to virtual machines, virtual networks, and storage — this certification validates the end-to-end operational skills demanded by cloud-first enterprises. Azure Administrators are among the most consistently hired cloud professionals globally, with demand underpinned by the 95% Fortune 500 adoption of Microsoft Azure.</p>
+        <div class="cert-columns">
+          <div>
+            <h4 class="cert-col-head">What You'll Learn</h4>
+            <div class="cl-list">
+              <div class="cl-item">Azure identity: Entra ID, RBAC, Conditional Access</div>
+              <div class="cl-item">Governance: Policy, Resource Manager, ARM templates</div>
+              <div class="cl-item">Compute: VMs, scale sets, containers, App Service</div>
+              <div class="cl-item">Networking: VNets, NSGs, VPN Gateway, ExpressRoute</div>
+              <div class="cl-item">Storage &amp; monitoring: accounts, backup, Azure Monitor</div>
+              
+            </div>
+          </div>
+          <div>
+            <h4 class="cert-col-head">Career Outcomes</h4>
+            <div class="cl-list">
+              <div class="cl-item">Cloud Administrator</div>
+              <div class="cl-item">Azure Engineer</div>
+              <div class="cl-item">Infrastructure Support Engineer</div>
+              <div class="cl-item">Platform Operations Engineer</div>
+              <div class="cl-item">Cloud Solutions Architect (Entry Level)</div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="cert-depts">
+          <h4 class="cert-col-head" style="margin-bottom:10px;">Relevant Departments</h4>
+          <div class="dept-tags"><span class="dept-tag">Computer Science</span><span class="dept-tag">IT</span><span class="dept-tag">Networking</span><span class="dept-tag">Cloud Computing</span><span class="dept-tag">MCA</span></div>
+        </div>
+        <div class="cert-footer">Salary: ₹10–20 LPA &middot; Prerequisite: Azure Fundamentals &middot; Exam: 2 hrs &middot; Pass: 70% &middot; 95% Fortune 500 use Azure</div>
+      </div>
+    </div>
+    <div class="cert-card" id="az700" style="--cert-color: #2E7D32">
+      <div class="cert-header">
+        <div class="cert-code">AZ-700</div>
+        <span class="cert-level">Associate</span>
+      </div>
+      <h3 class="cert-title">Microsoft Azure Network Engineer Associate</h3>
+      <p class="cert-tagline"><em>Design and secure enterprise cloud networks — a rare, high-value specialisation in constant demand.</em></p>
+      <div class="cert-body">
+        <p class="cert-overview">AZ-700 certifies deep expertise in designing, implementing, and managing Azure networking solutions for enterprise environments. Covering everything from virtual network architecture and hybrid connectivity to firewall configuration, load balancing, and private endpoints — this certification addresses one of the most specialised and highest-paying skill gaps in cloud. Cloud networking roles consistently command premium salaries as organisations demand professionals who can bridge on-premises and cloud infrastructure at enterprise scale.</p>
+        <div class="cert-columns">
+          <div>
+            <h4 class="cert-col-head">What You'll Learn</h4>
+            <div class="cl-list">
+              <div class="cl-item">Virtual network design, segmentation &amp; peering</div>
+              <div class="cl-item">VPN Gateway &amp; Azure ExpressRoute (hybrid connectivity)</div>
+              <div class="cl-item">Azure Firewall, NSGs, DDoS Protection &amp; WAF</div>
+              <div class="cl-item">Load balancing: Azure Load Balancer &amp; Application Gateway</div>
+              <div class="cl-item">DNS, private endpoints, traffic routing &amp; monitoring</div>
+              
+            </div>
+          </div>
+          <div>
+            <h4 class="cert-col-head">Career Outcomes</h4>
+            <div class="cl-list">
+              <div class="cl-item">Network Engineer (Cloud)</div>
+              <div class="cl-item">Cloud Infrastructure Architect</div>
+              <div class="cl-item">Azure Network Specialist</div>
+              <div class="cl-item">Platform Operations Engineer</div>
+              <div class="cl-item">Cloud Solutions Engineer</div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="cert-depts">
+          <h4 class="cert-col-head" style="margin-bottom:10px;">Relevant Departments</h4>
+          <div class="dept-tags"><span class="dept-tag">Computer Networks</span><span class="dept-tag">Computer Science</span><span class="dept-tag">Networking</span><span class="dept-tag">IT Infrastructure</span><span class="dept-tag">Telecom Engineering</span></div>
+        </div>
+        <div class="cert-footer">Salary: ₹10–20 LPA &middot; Prerequisite: Azure Fundamentals &middot; Exam: 2 hrs &middot; Pass: 70%</div>
+      </div>
+    </div>
+    <div class="cert-card" id="ai103" style="--cert-color: #6A1B9A">
+      <div class="cert-header">
+        <div class="cert-code">AI-103</div>
+        <span class="cert-level">Associate</span>
+      </div>
+      <h3 class="cert-title">Azure AI Apps &amp; Agents Developer Associate</h3>
+      <p class="cert-tagline"><em>Build intelligent applications and autonomous AI agents on Azure — the defining skill of the AI era.</em></p>
+      <div class="cert-body">
+        <p class="cert-overview">AI-103 certifies the ability to design, develop, and deploy intelligent applications and AI agent systems using Azure AI services and Azure OpenAI. This includes building NLP solutions, computer vision systems, knowledge mining pipelines, conversational AI bots, and autonomous multi-agent architectures. As enterprises race to embed AI into every product and workflow, AI developers who can operationalise these capabilities on the Azure platform are among the most sought-after — and best-compensated — professionals in the industry.</p>
+        <div class="cert-columns">
+          <div>
+            <h4 class="cert-col-head">What You'll Learn</h4>
+            <div class="cl-list">
+              <div class="cl-item">Azure Cognitive Services: Vision, Language, Speech</div>
+              <div class="cl-item">Azure OpenAI: GPT-4, embeddings &amp; function calling</div>
+              <div class="cl-item">Conversational AI: Azure Bot Service &amp; Copilot Studio</div>
+              <div class="cl-item">Knowledge mining: Azure AI Search &amp; Document Intelligence</div>
+              <div class="cl-item">AI Agent frameworks: Semantic Kernel &amp; AutoGen</div>
+              
+            </div>
+          </div>
+          <div>
+            <h4 class="cert-col-head">Career Outcomes</h4>
+            <div class="cl-list">
+              <div class="cl-item">AI Application Developer</div>
+              <div class="cl-item">Cognitive Services Engineer</div>
+              <div class="cl-item">Machine Learning Engineer</div>
+              <div class="cl-item">AI Solutions Developer</div>
+              <div class="cl-item">Intelligent Application Architect</div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="cert-depts">
+          <h4 class="cert-col-head" style="margin-bottom:10px;">Relevant Departments</h4>
+          <div class="dept-tags"><span class="dept-tag">Computer Science</span><span class="dept-tag">AI &amp; Machine Learning</span><span class="dept-tag">Software Engineering</span><span class="dept-tag">Data Science</span><span class="dept-tag">IT</span></div>
+        </div>
+        <div class="cert-footer">Salary: ₹15–30 LPA &middot; Prerequisite: AI Fundamentals &middot; Exam: 2 hrs &middot; Pass: 70% &middot; AI = #1 fastest-growing skill (WEF)</div>
+      </div>
+    </div>
+    <div class="cert-card" id="ai300" style="--cert-color: #6A1B9A">
+      <div class="cert-header">
+        <div class="cert-code">AI-300</div>
+        <span class="cert-level">Associate</span>
+      </div>
+      <h3 class="cert-title">Machine Learning Operations Engineer Associate</h3>
+      <p class="cert-tagline"><em>Operationalise AI at scale — the MLOps engineer is the professional enterprises cannot replace with AI itself.</em></p>
+      <div class="cert-body">
+        <p class="cert-overview">AI-300 certifies mastery of the full ML Operations lifecycle on Azure: from building and managing ML infrastructure and model training pipelines, to deploying Generative AI solutions, implementing quality and safety evaluations, and operating production AI systems with full observability. As enterprises move AI from pilot to production at scale, MLOps engineers who can bridge data science and production operations are experiencing explosive demand — with senior professionals commanding ₹35–60 LPA in India's AI-first economy.</p>
+        <div class="cert-columns">
+          <div>
+            <h4 class="cert-col-head">What You'll Learn</h4>
+            <div class="cl-list">
+              <div class="cl-item">MLOps infrastructure: Azure ML, AKS &amp; Foundry</div>
+              <div class="cl-item">ML model lifecycle: training, evaluation &amp; deployment</div>
+              <div class="cl-item">GenAIOps: deploying &amp; managing Generative AI solutions</div>
+              <div class="cl-item">Quality metrics: groundedness, relevance, coherence</div>
+              <div class="cl-item">Monitoring: latency, throughput, logging &amp; tracing</div>
+              
+            </div>
+          </div>
+          <div>
+            <h4 class="cert-col-head">Career Outcomes</h4>
+            <div class="cl-list">
+              <div class="cl-item">ML Operations Engineer</div>
+              <div class="cl-item">AI Platform Engineer</div>
+              <div class="cl-item">Generative AI Engineer</div>
+              <div class="cl-item">AI Solutions Architect</div>
+              <div class="cl-item">AI Infrastructure Specialist</div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="cert-depts">
+          <h4 class="cert-col-head" style="margin-bottom:10px;">Relevant Departments</h4>
+          <div class="dept-tags"><span class="dept-tag">Computer Science</span><span class="dept-tag">AI &amp; ML</span><span class="dept-tag">Data Science</span><span class="dept-tag">Software Engineering</span><span class="dept-tag">MCA</span></div>
+        </div>
+        <div class="cert-footer">Salary: ₹20–40 LPA (senior ₹35–60 LPA) &middot; Prerequisite: AI Fundamentals &middot; Exam: 2 hrs &middot; Pass: 70%</div>
+      </div>
+    </div>
+    <div class="cert-card" id="pl300" style="--cert-color: #00695C">
+      <div class="cert-header">
+        <div class="cert-code">PL-300</div>
+        <span class="cert-level">Associate</span>
+      </div>
+      <h3 class="cert-title">Microsoft Power BI Data Analyst Associate</h3>
+      <p class="cert-tagline"><em>Turn data into decisions — Power BI is the world's most widely deployed analytics platform.</em></p>
+      <div class="cert-body">
+        <p class="cert-overview">PL-300 certifies the ability to design and build scalable data models, clean and transform data, and deliver impactful business intelligence through Microsoft Power BI. This certification is unique in its cross-disciplinary employability: Power BI skills are in demand across every sector — BFSI, e-commerce, consulting, healthcare, logistics, and retail. Data analytics roles provide the fastest and widest entry point into the job market across all academic backgrounds, making PL-300 one of the highest return-on-investment certifications available to graduating students.</p>
+        <div class="cert-columns">
+          <div>
+            <h4 class="cert-col-head">What You'll Learn</h4>
+            <div class="cl-list">
+              <div class="cl-item">Data preparation: Power Query, M language, data modelling</div>
+              <div class="cl-item">DAX: calculated columns, measures &amp; time intelligence</div>
+              <div class="cl-item">Data visualisation: charts, maps, custom visuals, storytelling</div>
+              <div class="cl-item">Row-level security, workspaces &amp; deployment pipelines</div>
+              <div class="cl-item">Power BI Service: dashboards, sharing &amp; gateway management</div>
+              
+            </div>
+          </div>
+          <div>
+            <h4 class="cert-col-head">Career Outcomes</h4>
+            <div class="cl-list">
+              <div class="cl-item">Power BI Developer / Engineer</div>
+              <div class="cl-item">Business Intelligence Analyst</div>
+              <div class="cl-item">Data Analyst</div>
+              <div class="cl-item">Reporting &amp; Analytics Specialist</div>
+              <div class="cl-item">BI Consultant</div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="cert-depts">
+          <h4 class="cert-col-head" style="margin-bottom:10px;">Relevant Departments</h4>
+          <div class="dept-tags"><span class="dept-tag">Data Science</span><span class="dept-tag">Computer Science</span><span class="dept-tag">Business Analytics</span><span class="dept-tag">Statistics</span><span class="dept-tag">MCA / MCS</span><span class="dept-tag">Commerce &amp; Management</span></div>
+        </div>
+        <div class="cert-footer">Salary: ₹8–18 LPA &middot; Prerequisite: Data Fundamentals &middot; Exam: 2 hrs &middot; Pass: 70% &middot; Fastest entry point into analytics roles</div>
+      </div>
+    </div>
+    <div class="cert-card" id="sc500" style="--cert-color: #D84315">
+      <div class="cert-header">
+        <div class="cert-code">SC-500</div>
+        <span class="cert-level">Associate</span>
+      </div>
+      <h3 class="cert-title">Microsoft Security Operations Analyst Associate</h3>
+      <p class="cert-tagline"><em>Defend the enterprise — cybersecurity has 0% unemployment and 3.5 million unfilled roles globally.</em></p>
+      <div class="cert-body">
+        <p class="cert-overview">SC-500 certifies the skills required to reduce organisational risk by rapidly remediating active attacks, advising on improvements, and referring violations to appropriate stakeholders. Using Microsoft Sentinel, Microsoft Defender XDR, and the full Microsoft security ecosystem, certified analysts can detect, investigate, and respond to threats across hybrid and cloud environments. With the global cybersecurity talent shortage reaching 3.5 million unfilled roles, SC-500 holders are entering one of the most resilient, high-demand, and well-compensated fields in technology.</p>
+        <div class="cert-columns">
+          <div>
+            <h4 class="cert-col-head">What You'll Learn</h4>
+            <div class="cl-list">
+              <div class="cl-item">Microsoft Sentinel: SIEM, SOAR, threat hunting</div>
+              <div class="cl-item">Microsoft Defender XDR: endpoint, identity, cloud apps</div>
+              <div class="cl-item">Incident response: triage, investigation &amp; remediation</div>
+              <div class="cl-item">Threat intelligence &amp; vulnerability management</div>
+              <div class="cl-item">Security automation &amp; compliance monitoring</div>
+              
+            </div>
+          </div>
+          <div>
+            <h4 class="cert-col-head">Career Outcomes</h4>
+            <div class="cl-list">
+              <div class="cl-item">Security Operations Analyst (SOC)</div>
+              <div class="cl-item">Threat Intelligence Analyst</div>
+              <div class="cl-item">Incident Response Specialist</div>
+              <div class="cl-item">Security Compliance Engineer</div>
+              <div class="cl-item">Risk &amp; Security Consultant</div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="cert-depts">
+          <h4 class="cert-col-head" style="margin-bottom:10px;">Relevant Departments</h4>
+          <div class="dept-tags"><span class="dept-tag">Cybersecurity</span><span class="dept-tag">Computer Science</span><span class="dept-tag">IT</span><span class="dept-tag">Networking</span><span class="dept-tag">Information Security</span></div>
+        </div>
+        <div class="cert-footer">Salary: ₹8–20 LPA &middot; Prerequisite: Security Fundamentals &middot; Exam: 2 hrs &middot; Pass: 70% &middot; 3.5M global job shortage &middot; 0% effective unemployment</div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="section section-warm" style="text-align:center;">
+  <div class="container">
+    <span class="eyebrow">Ready to certify?</span>
+    <h2 class="heading">Schedule a batch for your<br><em>institution or team.</em></h2>
+    <p class="body-sm" style="max-width:480px; margin:16px auto 28px;">We deliver these certifications for universities, colleges, and corporate teams — with curriculum, labs, exam registration, and AI tutoring included.</p>
+    <a href="contact.html" class="btn-primary">Schedule a Batch</a>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo"><img src="data:image/png;base64,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" alt="CyberLearning" style="height:22px;width:auto;"></a>
+  <div class="footer-links">
+    <a href="about.html">About</a>
+    <a href="azure-certifications.html">Azure</a>
+    <a href="certiport-certifications.html">Certiport</a>
+    <a href="https://compudonjunior.com" target="_blank">COMPUDON Junior</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy-policy.html">Privacy</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 CyberLearning &middot; Official Microsoft Global Training Partner</div>
+</footer>
+
+</body>
+</html>
