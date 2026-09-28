@@ -219,6 +219,9 @@ footer {
   margin-bottom: 24px;
 }
 .hero-body { font-size: 14px; font-weight: 300; line-height: 1.8; color: var(--ink-soft); max-width: 520px; margin-bottom: 40px; }
+.hero-stats { list-style: none; padding: 0; margin: 0 0 40px; }
+.hero-stats li { font-size: 14px; font-weight: 400; line-height: 1.9; color: var(--ink-soft); padding-left: 18px; position: relative; }
+.hero-stats li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-weight: 500; }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 .mauritius-block {
   display: grid; grid-template-columns: 180px 1fr; gap: 60px; align-items: start;
@@ -297,7 +300,12 @@ footer {
   <div class="hero-inner">
     <div class="hero-label">Official Microsoft Global Training Partner · Est. 2006</div>
     <h1>The partner organisations<br>trust to build <em>lasting<br>digital capability.</em></h1>
-    <p class="hero-body">From enterprise upskilling to national digital literacy programmes — CyberLearning works with governments, universities, schools, and corporations across 25 countries to build technology capability that endures.</p>
+    <ul class="hero-stats">
+      <li>1,500,000+ learners trained</li>
+      <li>5-year engagement with a leading Indian MNC</li>
+      <li>Introduced Microsoft, Adobe, HP &amp; Certiport foundational certifications in India</li>
+      <li>Delivered digital literacy to 33% of Mauritius</li>
+    </ul>
     <div class="hero-actions">
       <a href="contact.html" class="btn-primary">Schedule a Batch</a>
       <a href="azure-certifications.html" class="btn-outline">View Certifications</a>
@@ -376,7 +384,7 @@ footer {
       <div class="aud-card"><span class="aud-icon">🏫</span><div class="aud-name">Schools & K–12</div><p class="aud-desc">Digital literacy foundations, teacher training, and our flagship <a href="https://compudonjunior.com" target="_blank" style="color:var(--accent);text-decoration:none;">COMPUDON Junior</a> Championship.</p></div>
       <div class="aud-card"><span class="aud-icon">🏢</span><div class="aud-name">Enterprise & Corporate</div><p class="aud-desc">Custom upskilling programmes and role-based Azure certification pathways.</p></div>
       <div class="aud-card"><span class="aud-icon">🤝</span><div class="aud-name">Microsoft Partners & ISVs</div><p class="aud-desc">Helping ecosystem partners meet certification requirements as an Official Microsoft GTP.</p></div>
-      <div class="aud-card"><span class="aud-icon">🌍</span><div class="aud-name">International Programmes</div><p class="aud-desc">Cross-border delivery across 25 countries with localisation and sovereign programme experience.</p></div>
+      <div class="aud-card"><span class="aud-icon">🌍</span><div class="aud-name">International Programmes</div><p class="aud-desc">Cross-border delivery with localisation capability and sovereign programme experience — including national-scale digital literacy in Mauritius.</p></div>
     </div>
   </div>
 </div>
